@@ -5,7 +5,9 @@ const createHash = (body, secret) => {
     let values = [];
     
     keys.forEach(key => {
-        values.push(body[key])
+        if(typeof(body[key]) != 'object'){
+            values.push(body[key])
+        }
     })
 
     let sortedValues = values.join('|');
